@@ -37,9 +37,11 @@ return results.map((r, i) => `${files[i]}: ${r.status === 'fulfilled' ? r.value.
   `AskUserQuestion`, or the plan-mode and worktree tools.
 - QuickJS isolates the JavaScript, not the effects of the tools a script calls. A script
   can make many calls in one go, and calls already made are not undone when a script fails.
-- In auto mode, tool calls that need the classifier's verdict, such as most Bash
-  commands, are denied: the classifier cannot see the request that led to them, so it
-  fails closed. Reads, read-only commands and MCP tools work.
+- In auto mode, the classifier judges every call a script makes, and it fails closed.
+  Simple commands pass (`sleep 3` did in testing). A call it can only judge against the
+  user's request, such as a compound Bash command, is denied, because the classifier
+  cannot see the request that led to the script. Reads, read-only commands and MCP tools
+  work.
 - Limits: a script has 2 minutes by default and 10 at most. The VM heap is capped at
   256 MB, and output is cut to 30,000 characters.
 - A tool call that is already running cannot be cancelled, because the mods API's
