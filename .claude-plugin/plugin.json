@@ -1,0 +1,11 @@
+{
+  "name": "codemode",
+  "version": "0.1.0",
+  "description": "Pi-style codemode: run JavaScript in a QuickJS sandbox that calls Claude Code's tools.",
+  "author": {
+    "name": "gecm"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/gecm0/codemode-mod",
+  "homepage": "https://github.com/gecm0/codemode-mod"
+}
